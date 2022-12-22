@@ -1,0 +1,30 @@
+version: '2.12'
+services:
+  database:
+    image: mysql:5.7
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tpachatproject
+    volumes:
+      - /home/mysql/data:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  spring-boot:
+    image: medjaziri/jaziribacproject:57
+    container_name: spring
+    ports:
+      - 8089:8089
+    depends_on:
+      - database
+    restart: on-failure
+
+
+    
+
+    
+
+    
+ 
+
